@@ -6,15 +6,15 @@
 
 const coinbase = require('..');
 
-const API_KEY = process.env["apiKeyName"];
+const API_KEY_NAME = process.env["apiKeyName"];
 // depending on the test environment, '\n' gets escaped as '\\n' which ES256 won't like
-const API_SECRET = process.env["apiPrivateKey"].replace(/\\n/g, '\n');
+const API_PRIVATE_KEY = process.env["apiPrivateKey"].replace(/\\n/g, '\n');
 const ACCOUNT_ID = process.env["accountId"];
 
 const Client = coinbase.Client;
 const coinbaseClient = new Client({
-    apiKey: API_KEY,
-    apiSecret: API_SECRET
+    apiKeyName: API_KEY_NAME,
+    apiPrivateKey: API_PRIVATE_KEY
 });
 
 function getAccount() {
